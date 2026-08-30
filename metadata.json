@@ -1,0 +1,6 @@
+{
+  "name": "CybeNode - Mahmoud Mostafa",
+  "description": "منصة CybeNode وصانع المحتوى Mahmoud Mostafa | أحدث أخبار التكنولوجيا، الذكاء الاصطناعي، الأمن السيبراني، إنشاء المواقع، الربح من الإنترنت وشروحات البرمجة والسيو",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

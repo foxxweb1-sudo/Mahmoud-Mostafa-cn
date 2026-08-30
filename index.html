@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>CybeNode | Mahmoud Mostafa - الذكاء الاصطناعي، الأمن السيبراني، إنشاء المواقع والبرمجة</title>
+  <meta name="description" content="منصة CybeNode وصانع المحتوى Mahmoud Mostafa - أحدث أخبار التكنولوجيا، الذكاء الاصطناعي، الأمن السيبراني، إنشاء وتطوير المواقع، الربح من الإنترنت، وشروحات البرمجة والسيو." />
+  <meta property="og:title" content="CybeNode - Mahmoud Mostafa" />
+  <meta property="og:description" content="مرحباً بك! أنا Mahmoud Mostafa، مهتم بتقديم أفضل المحتويات والشروحات المتميزة عبر موقع CybeNode." />
+  <meta property="og:image" content="logo.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       THEME VARIABLES & CSS RESET
+       ============================================================ */
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-surface: #141414;
+      --bg-card: #181818;
+      --bg-card-hover: #222222;
+      --bg-card-border: #2a2a2a;
+      --accent-red: #ff0000;
+      --accent-red-hover: #cc0000;
+      --accent-glow: rgba(255, 0, 0, 0.4);
+      --accent-glow-strong: rgba(255, 0, 0, 0.75);
+      --primary-gradient: linear-gradient(135deg, #0d6efd, #00d2ff);
+      --secondary-gradient: linear-gradient(135deg, #11998e, #38ef7d);
+      --text-white: #ffffff;
+      --text-light: #e5e5e5;
+      --text-muted: #9e9e9e;
+      --text-dim: #6e6e6e;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; border: 2px solid #0a0a0a; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-red); }
+    ::selection { background: var(--accent-red); color: #fff; }
+
+    a { color: inherit; text-decoration: none; transition: var(--transition-normal); }
+    img { max-width: 100%; height: auto; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* Ambient Lighting Background */
+    .ambient-glow-1 {
+      position: fixed;
+      top: -150px;
+      right: -100px;
+      width: min(500px, 90vw);
+      height: min(500px, 90vw);
+      background: radial-gradient(circle, rgba(255, 0, 0, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(50px);
+    }
+    .ambient-glow-2 {
+      position: fixed;
+      bottom: 10%;
+      left: -150px;
+      width: min(550px, 90vw);
+      height: min(550px, 90vw);
+      background: radial-gradient(circle, rgba(13, 110, 253, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(60px);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 24px);
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: clamp(55px, 8vw, 90px) 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto clamp(36px, 6vw, 56px);
+      padding: 0 8px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 0, 0, 0.1);
+      color: #ff4d4d;
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      font-size: clamp(0.8rem, 2vw, 0.875rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.65rem, 4vw, 2.25rem);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .section-title span {
+      color: var(--accent-red);
+      text-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: clamp(0.92rem, 2vw, 1.05rem);
+      line-height: 1.7;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 24px;
+      min-height: 46px;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: var(--transition-normal);
+      white-space: nowrap;
+      cursor: pointer;
+      box-sizing: border-box;
+      touch-action: manipulation;
+    }
+    .btn-primary {
+      background-color: var(--accent-red);
+      color: #ffffff;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .btn-primary:hover {
+      background-color: var(--accent-red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--accent-glow-strong);
+    }
+    .btn-secondary {
+      background-color: #212121;
+      color: var(--text-white);
+      border: 1px solid #333;
+    }
+    .btn-secondary:hover {
+      background-color: #2a2a2a;
+      transform: translateY(-2px);
+    }
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       HEADER (NAVBAR)
+       ============================================================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      background: rgba(15, 15, 15, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all var(--transition-normal);
+    }
+    .header.scrolled {
+      padding: 10px 0;
+      background: rgba(15, 15, 15, 0.96);
+      border-bottom-color: rgba(255, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .brand-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 2px solid var(--accent-red);
+      box-shadow: 0 0 12px var(--accent-glow);
+      transition: var(--transition-normal);
+    }
+    .brand-logo:hover .brand-img {
+      transform: rotate(4deg) scale(1.05);
+    }
+    .brand-name {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 1.1;
+      display: block;
+    }
+    .brand-name span { color: var(--accent-red); }
+    .brand-badge {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: relative;
+      padding: 6px 0;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-white);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-red);
+      transition: width var(--transition-normal);
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+    }
+    .mobile-toggle span {
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: var(--transition-normal);
+    }
+
+    /* Mobile Drawer */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(320px, 85vw);
+      height: 100vh;
+      background: #141414;
+      border-left: 1px solid #2a2a2a;
+      z-index: 1050;
+      padding: 75px 24px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: right var(--transition-normal);
+      box-shadow: -10px 0 35px rgba(0,0,0,0.85);
+      overflow-y: auto;
+    }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 1040;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-normal);
+    }
+    .mobile-menu-overlay.active { opacity: 1; pointer-events: auto; }
+    .close-mobile-btn {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #202020;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    .close-mobile-btn:hover { color: #fff; background: var(--accent-red); }
+    .mobile-links { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .mobile-link {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-light);
+      display: block;
+      padding: 10px 4px;
+      border-bottom: 1px solid #222;
+    }
+    .mobile-link:hover { color: var(--accent-red); }
+
+    /* ============================================================
+       1. HERO SECTION
+       ============================================================ */
+    .hero {
+      padding-top: clamp(120px, 16vw, 160px);
+      padding-bottom: clamp(60px, 10vw, 90px);
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(30px, 5vw, 60px);
+      align-items: center;
+    }
+    .hero-badge-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(24, 24, 24, 0.9);
+      border: 1px solid rgba(255, 0, 0, 0.35);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 20px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      box-shadow: 0 0 10px var(--accent-red);
+      animation: pulseDot 1.8s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 16px var(--accent-red); }
+    }
+    .hero-badge-text { font-size: 0.82rem; font-weight: 700; color: var(--text-light); }
+    .hero-title {
+      font-size: clamp(1.85rem, 5vw, 2.85rem);
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .hero-title .highlight {
+      color: var(--accent-red);
+      text-shadow: 0 0 25px var(--accent-glow);
+    }
+    .hero-description {
+      font-size: clamp(0.95rem, 2.5vw, 1.12rem);
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+    .hero-stats-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: clamp(16px, 4vw, 32px);
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-stat { display: flex; flex-direction: column; }
+    .stat-num { font-size: clamp(1.3rem, 3.5vw, 1.6rem); font-weight: 800; color: #fff; }
+    .stat-num span { color: var(--accent-red); }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Hero Floating Visual Card */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .hero-card-main {
+      width: 100%;
+      max-width: 440px;
+      background: linear-gradient(145deg, #1f1f1f, #141414);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(255,0,0,0.15);
+      padding: clamp(20px, 4vw, 28px);
+      animation: floatSmooth 6s ease-in-out infinite;
+    }
+    @keyframes floatSmooth {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .channel-profile-tag { display: flex; align-items: center; gap: 12px; }
+    .channel-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-red);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .channel-meta h4 { font-size: 1.05rem; font-weight: 800; color: #fff; }
+    .channel-meta p { font-size: 0.8rem; color: var(--text-muted); }
+    .verified-icon { color: #3ea6ff; width: 16px; height: 16px; display: inline-block; vertical-align: middle; }
+
+    .tech-pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .tech-pill {
+      background: #111;
+      color: var(--text-light);
+      border: 1px solid #2c2c2c;
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .tech-pill.active {
+      border-color: rgba(255, 0, 0, 0.5);
+      background: rgba(255, 0, 0, 0.08);
+      color: #ff6666;
+    }
+    .hero-metric-box {
+      background: #121212;
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #262626;
+      gap: 12px;
+    }
+
+    /* ============================================================
+       2. VISION & PHILOSOPHY SECTION
+       ============================================================ */
+    .vision-section {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #131313 50%, var(--bg-dark) 100%);
+    }
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(30px, 5vw, 50px);
+      align-items: center;
+    }
+    .vision-content h3 {
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+    .vision-content h3 span { color: var(--accent-red); }
+    .vision-content p {
+      color: var(--text-muted);
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+    .vision-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .vision-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .vision-item-icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 50%;
+      background: rgba(255, 0, 0, 0.15);
+      color: var(--accent-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .glowing-box-wrapper { width: 100%; display: flex; justify-content: center; }
+    .glowing-box {
+      width: 100%;
+      max-width: 460px;
+      background: rgba(24, 24, 24, 0.8);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 0, 0, 0.35);
+      border-radius: var(--radius-lg);
+      padding: clamp(22px, 4vw, 34px);
+      box-shadow: 0 0 35px rgba(255, 0, 0, 0.18);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { border-color: rgba(255, 0, 0, 0.35); box-shadow: 0 0 25px rgba(255, 0, 0, 0.15); }
+      50% { border-color: rgba(255, 0, 0, 0.75); box-shadow: 0 0 45px rgba(255, 0, 0, 0.3); }
+    }
+    .quote-text {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .glowing-box-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .author-thumb {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-red);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       3. CATEGORIES SECTION (مجالات وتخصصات CybeNode)
+       ============================================================ */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 22px;
+    }
+    .cat-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      padding: clamp(22px, 3.5vw, 30px);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+    }
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-red), #ff6b6b);
+      box-shadow: 0 0 12px var(--accent-red);
+      transition: width var(--transition-normal);
+    }
+    .cat-card:hover {
+      background-color: var(--bg-card-hover);
+      transform: translateY(-5px);
+      border-color: rgba(255, 0, 0, 0.3);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.12);
+    }
+    .cat-card:hover::before { width: 100%; }
+    .cat-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 0, 0, 0.1);
+      color: var(--accent-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      transition: var(--transition-normal);
+      font-size: 1.5rem;
+    }
+    .cat-card:hover .cat-icon-box {
+      background: var(--accent-red);
+      color: #fff;
+      box-shadow: 0 0 20px var(--accent-glow);
+      transform: scale(1.05);
+    }
+    .cat-title { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .cat-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; flex-grow: 1; }
+    .cat-topics { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .cat-topic-tag {
+      font-size: 0.74rem;
+      background: #111;
+      color: #bbb;
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #262626;
+    }
+
+    /* ============================================================
+       4. NEW ARTICLES SECTION (من المدونة الرسمية عبر RSS)
+       ============================================================ */
+    .articles-section {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #151515 50%, var(--bg-dark) 100%);
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: clamp(20px, 3.5vw, 28px);
+    }
+    .article-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-normal);
+      position: relative;
+    }
+    .article-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 0, 0, 0.35);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 22px rgba(255, 0, 0, 0.15);
+    }
+    .article-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0d0d0d;
+      overflow: hidden;
+    }
+    .article-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .article-card:hover .article-thumb { transform: scale(1.06); }
+    .article-badge-category {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .article-body {
+      padding: clamp(18px, 3vw, 22px);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .article-card:hover .article-title { color: #ff5555; }
+    .article-excerpt {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+    .article-footer {
+      padding-top: 14px;
+      border-top: 1px solid #242424;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .article-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-red);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .article-read-btn:hover {
+      color: #ff6666;
+      gap: 9px;
+    }
+
+    /* ============================================================
+       5. YOUTUBE RSS FEED SECTION
+       ============================================================ */
+    .videos-section {
+      background-color: #111111;
+      position: relative;
+    }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: clamp(20px, 3.5vw, 28px);
+    }
+    .video-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-normal);
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 0, 0, 0.35);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 22px rgba(255, 0, 0, 0.15);
+    }
+    .video-thumbnail-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #080808;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .video-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .video-card:hover .video-thumbnail { transform: scale(1.06); }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+    }
+    .video-card:hover .play-overlay { opacity: 1; }
+    .play-btn-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px var(--accent-glow-strong);
+    }
+    .play-btn-circle svg { width: 22px; height: 22px; fill: currentColor; }
+    .video-body {
+      padding: clamp(16px, 3vw, 20px);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .video-meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .video-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.45;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .video-card:hover .video-title { color: #ff5555; }
+    .video-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid #242424;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .video-watch-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .skeleton-card {
+      background: #181818;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid #222;
+      animation: pulseSkeleton 1.5s infinite ease-in-out;
+    }
+    @keyframes pulseSkeleton { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+    .skeleton-thumb { width: 100%; aspect-ratio: 16 / 9; background: #252525; }
+    .skeleton-text { height: 16px; background: #282828; border-radius: 4px; margin: 16px 20px 8px; }
+    .skeleton-text.short { width: 60%; }
+
+    /* Empty state notice */
+    .empty-notice-box {
+      background: #161616;
+      border: 1px dashed #333;
+      border-radius: var(--radius-md);
+      padding: clamp(30px, 6vw, 45px) 20px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .empty-notice-icon {
+      font-size: 2.5rem;
+      margin-bottom: 14px;
+    }
+    .empty-notice-box h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .empty-notice-box p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       6. FEATURES SECTION (ماذا تستفيد من متابعتنا؟)
+       ============================================================ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: clamp(18px, 3.5vw, 26px);
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      padding: clamp(22px, 3.5vw, 30px);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: var(--transition-normal);
+    }
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 0, 0, 0.4);
+      transform: translateY(-4px);
+    }
+    .feature-icon-box {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 12px;
+      background: rgba(255, 0, 0, 0.12);
+      color: var(--accent-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .feature-text h4 { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .feature-text p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ============================================================
+       7. ABOUT SECTION & CTA BANNER
+       ============================================================ */
+    .about-section {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #151515 100%);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(30px, 5vw, 60px);
+      align-items: center;
+      margin-bottom: clamp(40px, 8vw, 80px);
+    }
+    .about-profile-frame {
+      width: clamp(200px, 35vw, 290px);
+      height: clamp(200px, 35vw, 290px);
+      border-radius: 50%;
+      padding: 7px;
+      background: linear-gradient(135deg, var(--accent-red), #330000, var(--accent-red));
+      box-shadow: 0 0 35px var(--accent-glow-strong);
+      animation: floatSmooth 6s ease-in-out infinite;
+      margin: 0 auto;
+    }
+    .about-profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--bg-dark);
+      background-color: #1a1a1a;
+    }
+    .about-content h2 { font-size: clamp(1.75rem, 4vw, 2.3rem); font-weight: 900; color: #fff; margin-bottom: 10px; }
+    .about-content h2 span { color: var(--accent-red); }
+    .about-role-title { font-size: 1.05rem; color: #ff6666; font-weight: 700; margin-bottom: 16px; }
+    .about-bio { font-size: clamp(0.95rem, 2vw, 1.05rem); color: var(--text-muted); line-height: 1.8; margin-bottom: 24px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #1c1010, #141414 60%, #1f0808);
+      border: 2px solid rgba(255, 0, 0, 0.4);
+      border-radius: var(--radius-lg);
+      padding: clamp(30px, 6vw, 50px) clamp(20px, 4vw, 36px);
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.15);
+    }
+    .cta-banner-title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900; color: #fff; margin-bottom: 14px; }
+    .cta-banner-title span { color: var(--accent-red); text-shadow: 0 0 20px var(--accent-glow); }
+    .cta-banner-desc { font-size: clamp(0.92rem, 2vw, 1.05rem); color: var(--text-light); margin-bottom: 26px; line-height: 1.7; max-width: 700px; margin-inline: auto; }
+
+    /* ============================================================
+       8. CONTACT SECTION (تواصل معنا + Firebase Form)
+       ============================================================ */
+    .contact-section {
+      background: #0d0d0d;
+      padding: clamp(55px, 8vw, 90px) 0;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .contact-wrapper {
+      direction: rtl;
+      text-align: right;
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 0 8px;
+      box-sizing: border-box;
+    }
+
+    .forum-link-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .btn-forum {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--secondary-gradient);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.92rem;
+      box-shadow: 0 6px 15px rgba(56, 239, 125, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .btn-forum:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(56, 239, 125, 0.35);
+      color: #ffffff;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 30px);
+      box-shadow: 0 15px 35px rgba(13, 110, 253, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(13, 110, 253, 0.1);
+      position: relative;
+      overflow: hidden;
+      color: #2c3e50;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: clamp(24px, 4vw, 35px);
+    }
+
+    .contact-header .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(13, 110, 253, 0.1);
+      color: #0d6efd;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .contact-header h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-header p {
+      color: #6c757d;
+      font-size: clamp(0.88rem, 2vw, 1rem);
+      margin-top: 8px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #2c3e50;
+      background: #f8fafc;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
+    }
+
+    .btn-container {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 16px;
+      width: 100%;
+      min-height: 70px;
+    }
+
+    /* Animated Submit Button */
+    .button {
+      --primary: #0d6efd;
+      --radius: 14px;
+
+      cursor: pointer;
+      border-radius: var(--radius);
+      border: none;
+      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2), 0 4px 5px rgba(0, 0, 0, 0.05);
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.3s ease;
+      width: min(240px, 100%);
+      height: 56px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      background: #0d6efd;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 15px 25px rgba(13, 110, 253, 0.3);
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    .state p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      direction: ltr;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .state .icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .state p span {
+      display: inline-block;
+    }
+
+    .button:hover p span {
+      animation: wave 0.5s ease forwards calc(var(--i) * 0.02s);
+    }
+
+    .button.is-submitting p span {
+      animation: disappear 0.5s ease forwards calc(var(--i) * 0.03s);
+    }
+
+    @keyframes wave {
+      30% { transform: translateY(4px); }
+      50% { transform: translateY(-3px); color: #00d2ff; }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes disappear {
+      from { opacity: 1; }
+      to { opacity: 0; transform: translateY(15px); filter: blur(3px); }
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .state {
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .state--sent {
+      display: none;
+      background: #198754;
+      position: absolute;
+      inset: 0;
+    }
+
+    .button.is-submitting .state--default {
+      display: none;
+    }
+
+    .button.is-submitting .state--sent {
+      display: flex;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    /* Success Card */
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 30px 20px;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .success-icon-box {
+      width: 70px;
+      height: 70px;
+      background: var(--secondary-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 16px auto;
+      box-shadow: 0 10px 25px rgba(56, 239, 125, 0.3);
+    }
+
+    .reset-btn {
+      background: #f1f5f9;
+      color: #2c3e50;
+      border: 1px solid #cbd5e1;
+      padding: 11px 22px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 15px;
+      min-height: 44px;
+    }
+
+    .reset-btn:hover { background: #e2e8f0; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       9. FOOTER
+       ============================================================ */
+    .footer {
+      background-color: #0a0a0a;
+      border-top: 1px solid #1f1f1f;
+      padding: clamp(50px, 8vw, 80px) 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr 0.8fr 0.9fr;
+      gap: clamp(28px, 4vw, 48px);
+      margin-bottom: 45px;
+    }
+    .footer-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-top: 16px;
+      max-width: 320px;
+    }
+    .footer-col-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 18px;
+      position: relative;
+      display: inline-block;
+    }
+    .footer-col-title::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      right: 0;
+      width: 28px;
+      height: 2.5px;
+      background: var(--accent-red);
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: var(--text-muted); font-size: 0.9rem; }
+    .footer-links a:hover { color: var(--accent-red); padding-right: 6px; }
+    .footer-bottom {
+      padding-top: 26px;
+      border-top: 1px solid #191919;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    /* Scroll To Top */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px var(--accent-glow-strong);
+      z-index: 900;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-normal);
+      cursor: pointer;
+    }
+    .scroll-top-btn.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top-btn:hover { transform: translateY(-4px); }
+
+    /* Video Modal */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-normal);
+    }
+    .video-modal.active { opacity: 1; pointer-events: auto; }
+    .modal-content-box {
+      width: 100%;
+      max-width: 860px;
+      background: #141414;
+      border-radius: var(--radius-lg);
+      border: 1px solid #333;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+    }
+    .modal-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #222;
+    }
+    .modal-title { font-size: 1rem; font-weight: 700; color: #fff; }
+    .modal-close-btn { color: #aaa; font-size: 1.3rem; cursor: pointer; padding: 4px; }
+    .modal-close-btn:hover { color: var(--accent-red); }
+    .modal-iframe-wrap { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+    .modal-iframe-wrap iframe { width: 100%; height: 100%; border: none; }
+
+    /* Fade-up animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-grid, .vision-grid, .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-visual { order: -1; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .header-actions .btn { display: none; }
+      .mobile-toggle { display: flex; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-profile-frame { width: 220px; height: 220px; }
+      .cta-banner { padding: 32px 18px; }
+      .cta-banner .btn { width: 100%; }
+      .forum-link-wrapper { justify-content: center; }
+      .btn-forum { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats-row { justify-content: space-between; }
+      .hero-stat { min-width: 45%; }
+      .brand-name { font-size: 1.15rem; }
+      .brand-img { width: 36px; height: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Effects -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- ============================================================
+       HEADER (NAVBAR)
+       ============================================================ -->
+  <header class="header" id="mainHeader">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo" id="brandLogo">
+        <img src="logo.jpg" alt="CybeNode Logo" class="brand-img" onerror="this.src='https://picsum.photos/seed/cybenode/100/100'" />
+        <div>
+          <span class="brand-name">Cybe<span>Node</span></span>
+          <span class="brand-badge">Mahmoud Mostafa</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">الرئيسية</a></li>
+        <li><a href="#vision" class="nav-link">الرؤية</a></li>
+        <li><a href="#categories" class="nav-link">التخصصات</a></li>
+        <li><a href="#articles" class="nav-link">المقالات</a></li>
+        <li><a href="#videos" class="nav-link">الفيديوهات</a></li>
+        <li><a href="#features" class="nav-link">المميزات</a></li>
+        <li><a href="#about" class="nav-link">عن Mahmoud Mostafa</a></li>
+        <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <a href="https://www.youtube.com/@CybeNod?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="headerSubscribeBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>اشتراك في القناة</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="close-mobile-btn" id="closeMobileBtn" aria-label="إغلاق">✕</button>
+    <ul class="mobile-links">
+      <li><a href="#hero" class="mobile-link">الرئيسية</a></li>
+      <li><a href="#vision" class="mobile-link">الرؤية والهدف</a></li>
+      <li><a href="#categories" class="mobile-link">المجالات والتخصصات</a></li>
+      <li><a href="#articles" class="mobile-link">أحدث المقالات (المدونة)</a></li>
+      <li><a href="#videos" class="mobile-link">أحدث الفيديوهات</a></li>
+      <li><a href="#features" class="mobile-link">ماذا تستفيد؟</a></li>
+      <li><a href="#about" class="mobile-link">عن Mahmoud Mostafa</a></li>
+      <li><a href="#contact" class="mobile-link">اتصل بنا</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 16px;">
+      <a href="https://www.youtube.com/@CybeNod?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+        <span>اشترك في القناة</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       1. HERO SECTION
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <div class="hero-content fade-up">
+          <div class="hero-badge-container">
+            <span class="live-dot"></span>
+            <span class="hero-badge-text">منصة CybeNode التقنية الشاملة</span>
+          </div>
+
+          <h1 class="hero-title">
+            أحدث أخبار التكنولوجيا، <span class="highlight">الذكاء الاصطناعي</span> وإنشاء المواقع مع <span class="highlight">CybeNode</span>
+          </h1>
+
+          <p class="hero-description">
+            مرحباً بك! أنا <strong>Mahmoud Mostafa</strong>، مهتم بتقديم أفضل المحتويات والشروحات المتميزة عبر موقع <strong>CybeNode</strong>. منصة تقنية تقدم أحدث أخبار التكنولوجيا، الذكاء الاصطناعي، الأمن السيبراني، إنشاء وتطوير المواقع، الربح من الإنترنت، وشروحات البرمجة والسيو.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://www.youtube.com/@CybeNod" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="heroYoutubeBtn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span>مشاهدة القناة على يوتيوب</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>تواصل مع Mahmoud Mostafa</span>
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat">
+              <span class="stat-num">+100<span> درس</span></span>
+              <span class="stat-label">شروحات فيديو ومقالات</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-num">100%<span> تطبيقي</span></span>
+              <span class="stat-label">محتوى عملي وموثوق</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-num">24/7<span> مجتمع</span></span>
+              <span class="stat-label">دعم ونقاش مستمر</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual fade-up delay-1">
+          <div class="hero-card-main">
+            <div class="hero-card-header">
+              <div class="channel-profile-tag">
+                <img src="profile.png" alt="Mahmoud Mostafa" class="channel-avatar" onerror="this.src='logo.jpg'" />
+                <div class="channel-meta">
+                  <h4>CybeNode <svg class="verified-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></h4>
+                  <p>Mahmoud Mostafa</p>
+                </div>
+              </div>
+              <span style="background: var(--accent-red); color: #fff; padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;">رسمي</span>
+            </div>
+
+            <div class="tech-pill-list">
+              <span class="tech-pill active">🤖 الذكاء الاصطناعي</span>
+              <span class="tech-pill">🛡️ الأمن السيبراني</span>
+              <span class="tech-pill">💻 إنشاء وتطوير المواقع</span>
+              <span class="tech-pill">💰 الربح من الإنترنت</span>
+              <span class="tech-pill">⚡ البرمجة والسيو</span>
+            </div>
+
+            <div class="hero-metric-box">
+              <div>
+                <h5 style="font-size: 0.82rem; color: #9e9e9e;">المنصة التقنية المتكاملة</h5>
+                <p style="font-size: 1.05rem; font-weight: 800; color: #fff;">CybeNode Tech Hub</p>
+              </div>
+              <a href="https://www.cybenode.site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem; min-height: 38px;">
+                المدونة الرسمية
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. VISION & PHILOSOPHY SECTION
+       ============================================================ -->
+  <section class="vision-section" id="vision">
+    <div class="container">
+      <div class="vision-grid">
+        
+        <div class="vision-content fade-up">
+          <span class="section-tag">رؤيتنا ورسالتنا</span>
+          <h3>تمكين الشباب العربي بأحدث مهارات <span>التكنولوجيا والمستقبل</span></h3>
+          <p>
+            تأسست منصة <strong>CybeNode</strong> لتقديم المعرفة التقنية الحقيقية بأسلوب مبسط وعملي. نؤمن بأن المستقبل يُبنى بالبرمجة، الذكاء الاصطناعي، إنشاء المشاريع الرقمية، وحماية البيانات في عصر الثورة الرقمية.
+          </p>
+
+          <ul class="vision-list">
+            <li class="vision-item">
+              <div class="vision-item-icon">✓</div>
+              <div><strong>محتوى متجدد يومياً:</strong> أحدث اتجاهات الذكاء الاصطناعي، أدوات التوليد والبرمجة الحديثة.</div>
+            </li>
+            <li class="vision-item">
+              <div class="vision-item-icon">✓</div>
+              <div><strong>إنشاء المواقع والمنصات:</strong> بناء وتصميم مواقع متكاملة، ووردبريس، بلوجر، واستضافات سريعة.</div>
+            </li>
+            <li class="vision-item">
+              <div class="vision-item-icon">✓</div>
+              <div><strong>الأمن السيبراني والربح:</strong> استراتيجيات حماية الأنظمة وطرق موثوقة لتحقيق الدخل من الإنترنت.</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="glowing-box-wrapper fade-up delay-1">
+          <div class="glowing-box">
+            <div class="quote-text">
+              "مرحباً بك! أنا Mahmoud Mostafa، أعمل بشغف لمساعدتك في احتراف التكنولوجيا، إنشاء المواقع، ومواكبة طفرة الذكاء الاصطناعي بخطوات عملية."
+            </div>
+            <div class="glowing-box-author">
+              <img src="profile.png" alt="Mahmoud Mostafa" class="author-thumb" onerror="this.src='logo.jpg'" />
+              <div>
+                <h4 style="font-size: 1rem; font-weight: 800; color: #fff;">Mahmoud Mostafa</h4>
+                <p style="font-size: 0.8rem; color: #9e9e9e;">مؤسس منصة CybeNode التقنية</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. CATEGORIES SECTION (مجالات وتخصصات CybeNode)
+       ============================================================ -->
+  <section id="categories">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">التخصصات والمجالات</span>
+        <h2 class="section-title">ماذا نقدم في منصة <span>CybeNode</span>؟</h2>
+        <p class="section-desc">مجموعة متكاملة من الشروحات والمقالات والأدوات التقنية التي تغطي مجالات التكنولوجيا الحديثة.</p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- 1. الذكاء الاصطناعي -->
+        <div class="cat-card fade-up">
+          <div class="cat-icon-box">🤖</div>
+          <h3 class="cat-title">الذكاء الاصطناعي (AI)</h3>
+          <p class="cat-desc">استعراض أحدث نماذج الذكاء الاصطناعي، أدوات الإنتاجية، روبوتات الدردشة، ودمج الـ AI في سير عملك اليومي والبرمجة.</p>
+          <div class="cat-topics">
+            <span class="cat-topic-tag">نماذج التوليد</span>
+            <span class="cat-topic-tag">Prompt Engineering</span>
+            <span class="cat-topic-tag">أتمتة الأعمال</span>
+          </div>
+        </div>
+
+        <!-- 2. إنشاء وتطوير المواقع -->
+        <div class="cat-card fade-up delay-1">
+          <div class="cat-icon-box">💻</div>
+          <h3 class="cat-title">إنشاء وتطوير المواقع</h3>
+          <p class="cat-desc">بناء مواقع احترافية من الصفر، إدارة قوالب ووردبريس وبلوجر، ربط الدومينات، وإعداد الاستضافات والسيرفرات السحابية.</p>
+          <div class="cat-topics">
+            <span class="cat-topic-tag">WordPress</span>
+            <span class="cat-topic-tag">Blogger</span>
+            <span class="cat-topic-tag">استضافات سريعة</span>
+          </div>
+        </div>
+
+        <!-- 3. الأمن السيبراني -->
+        <div class="cat-card fade-up delay-2">
+          <div class="cat-icon-box">🛡️</div>
+          <h3 class="cat-title">الأمن السيبراني</h3>
+          <p class="cat-desc">شروحات حماية المواقع والسيرفرات من الاختراق، تأمين البيانات الشخصية، وكشف الثغرات والوقاية من الهجمات الإلكترونية.</p>
+          <div class="cat-topics">
+            <span class="cat-topic-tag">حماية المواقع</span>
+            <span class="cat-topic-tag">شهادات SSL</span>
+            <span class="cat-topic-tag">تأمين السيرفرات</span>
+          </div>
+        </div>
+
+        <!-- 4. شروحات البرمجة -->
+        <div class="cat-card fade-up">
+          <div class="cat-icon-box">⚡</div>
+          <h3 class="cat-title">شروحات البرمجة</h3>
+          <p class="cat-desc">دروس عملية في لغات البرمجة وتطوير الويب (HTML, CSS, JavaScript, Python)، وحل المشكلات التقنية والأخطاء الشائعة.</p>
+          <div class="cat-topics">
+            <span class="cat-topic-tag">Frontend & Backend</span>
+            <span class="cat-topic-tag">سكربتات مخصصة</span>
+            <span class="cat-topic-tag">أكواد جاهزة</span>
+          </div>
+        </div>
+
+        <!-- 5. الربح من الإنترنت -->
+        <div class="cat-card fade-up delay-1">
+          <div class="cat-icon-box">💰</div>
+          <h3 class="cat-title">الربح من الإنترنت</h3>
+          <p class="cat-desc">استراتيجيات حقيقية ومجربة لتحقيق الدخل، قبول جوجل أدسنس، التسويق بالعمولة (Affiliate)، وبيع الخدمات عبر منصات العمل الحر.</p>
+          <div class="cat-topics">
+            <span class="cat-topic-tag">Google AdSense</span>
+            <span class="cat-topic-tag">العمل الحر (Freelance)</span>
+            <span class="cat-topic-tag">التسويق الرقمي</span>
+          </div>
+        </div>
+
+        <!-- 6. السيو وتتصدر نتائج البحث -->
+        <div class="cat-card fade-up delay-2">
+          <div class="cat-icon-box">📈</div>
+          <h3 class="cat-title">السيو (SEO)</h3>
+          <p class="cat-desc">تحسين محركات البحث الداخلي والخارجي (On-page & Off-page)، كتابة مقالات متوافقة مع السيو، وبناء الباك لينك القوي.</p>
+          <div class="cat-topics">
+            <span class="cat-topic-tag">الكلمات المفتاحية</span>
+            <span class="cat-topic-tag">سرعة الموقع</span>
+            <span class="cat-topic-tag">تصدر جوجل</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. NEW ARTICLES SECTION (جلب أحدث 3 مقالات من https://www.cybenode.site/rss.xml)
+       ============================================================ -->
+  <section class="articles-section" id="articles">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">أحدث المقالات</span>
+        <h2 class="section-title">شروحات ومقالات من مدونة <span>CybeNode</span></h2>
+        <p class="section-desc">أحدث 3 مقالات تقنية حصرية منشورة على موقعنا الرسمي لتطوير مهاراتك ومواكبة كل جديد.</p>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="articles-grid" id="articlesGrid">
+        <!-- Skeleton loaders while fetching -->
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;" class="fade-up">
+        <a href="https://www.cybenode.site/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <span>زيارة المدونة وتصفح كافة المقالات</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. YOUTUBE RSS FEED SECTION (بدون إظهار فيديوهات وهمية في حال عدم توفر بيانات)
+       ============================================================ -->
+  <section class="videos-section" id="videos">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">خلاصة يوتيوب الحية</span>
+        <h2 class="section-title">فيديوهات قناة <span>CybeNode</span></h2>
+        <p class="section-desc">شاهد أحدث الدروس والشروحات العملية المنشورة مباشرة على قناة يوتيوب الرسمية.</p>
+      </div>
+
+      <div class="videos-grid" id="videosGrid">
+        <!-- Skeleton loaders while fetching -->
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+      </div>
+
+      <!-- Empty State Notice (يظهر فقط إذا لم توجد فيديوهات في القناة) -->
+      <div id="noVideosNotice" style="display: none;" class="fade-up">
+        <div class="empty-notice-box">
+          <div class="empty-notice-icon">🎬</div>
+          <h3>قناة CybeNode على يوتيوب</h3>
+          <p>لا توجد فيديوهات معروضة حالياً من الخلاصة المباشرة. اشترك الآن في القناة لتكون أول من يشاهد الفيديوهات والشروحات الجديدة فور نزولها.</p>
+          <a href="https://www.youtube.com/@CybeNod?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>الاشتراك في القناة على يوتيوب</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="videoSectionFooterBtn" style="text-align: center; margin-top: 40px;" class="fade-up">
+        <a href="https://www.youtube.com/@CybeNod" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>مشاهدة القناة على يوتيوب</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. FEATURES SECTION (ماذا تستفيد من متابعتنا؟)
+       ============================================================ -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">القيمة المضافة</span>
+        <h2 class="section-title">ماذا تستفيد من متابعة <span>CybeNode</span>؟</h2>
+        <p class="section-desc">نوفر لك بيئة تعليمية وتقنية متكاملة تضمن لك التفوق في مجالك الرقمي.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-icon-box">🎯</div>
+          <div class="feature-text">
+            <h4>تطبيق عملي خطوة بخطوة</h4>
+            <p>لا نكتفي بالنظريات، بل نطبق الشروحات والسكربتات والأكواد بشكل حي ومباشر أمامك.</p>
+          </div>
+        </div>
+
+        <div class="feature-card fade-up delay-1">
+          <div class="feature-icon-box">🔒</div>
+          <div class="feature-text">
+            <h4>أمان ومصداقية كاملة</h4>
+            <p>أدوات وحلول مجربة وآمنة 100% لحماية مشاريعك الرقمية ومواقعك ومصادر دخلك.</p>
+          </div>
+        </div>
+
+        <div class="feature-card fade-up delay-2">
+          <div class="feature-icon-box">🚀</div>
+          <div class="feature-text">
+            <h4>مواكبة طفرة الذكاء الاصطناعي</h4>
+            <p>كن دائماً في الصدارة مع أدوات الذكاء الاصطناعي المتقدمة التي تختصر ساعات العمل.</p>
+          </div>
+        </div>
+
+        <div class="feature-card fade-up">
+          <div class="feature-icon-box">💬</div>
+          <div class="feature-text">
+            <h4>منتدى ودعم تفاعلي</h4>
+            <p>منتدى مخصص للنقاش وحل المشاكل التقنية مع Mahmoud Mostafa وأعضاء المجتمع التقني.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. ABOUT SECTION & CTA BANNER
+       ============================================================ -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        
+        <div class="about-image-wrapper fade-up">
+          <div class="about-profile-frame">
+            <img src="profile.png" alt="Mahmoud Mostafa" class="about-profile-img" onerror="this.src='logo.jpg'" />
+          </div>
+        </div>
+
+        <div class="about-content fade-up delay-1">
+          <span class="section-tag">صانع المحتوى</span>
+          <h2>Mahmoud <span>Mostafa</span></h2>
+          <div class="about-role-title">مؤسس ومطور منصة CybeNode التقنية</div>
+          <p class="about-bio">
+            مرحباً بك! أنا <strong>Mahmoud Mostafa</strong>، مهتم بتقديم أفضل المحتويات والشروحات المتميزة عبر موقع <strong>CybeNode</strong>. تخصصي يجمع بين إنشاء وتطوير المواقع والمنصات، استكشاف أدوات الذكاء الاصطناعي، الأمن السيبراني، الربح من الإنترنت، والحلول التقنية المبتكرة لمساعدة الجميع في تحقيق النجاح الرقمي.
+          </p>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+            <a href="https://www.youtube.com/@CybeNod" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              قناة يوتيوب
+            </a>
+            <a href="https://www.cybenode.site/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              الموقع الرسمي
+            </a>
+            <a href="https://cybe-node.blogspot.com/p/forum.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              المنتدى
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="cta-banner fade-up">
+        <h2 class="cta-banner-title">انضم الآن إلى مجتمع <span>CybeNode</span></h2>
+        <p class="cta-banner-desc">لا تفوت أي جديد في عالم التكنولوجيا، الذكاء الاصطناعي وإنشاء المواقع. اشترك الآن وكن جزءاً من مجتمعنا التقني.</p>
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a href="https://www.youtube.com/@CybeNod?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>اشترك في القناة مجاناً</span>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>إرسال استفسار خاص</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. CONTACT SECTION (اتصل بنا + Firebase Firestore)
+       ============================================================ -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      
+      <div class="contact-wrapper">
+        
+        <!-- زر الانتقال للمنتدى -->
+        <div class="forum-link-wrapper">
+          <a href="https://cybe-node.blogspot.com/p/forum.html" target="_blank" rel="noopener noreferrer" class="btn-forum">
+            💬 الانتقال إلى المنتدى 
+          </a>
+        </div>
+
+        <div class="contact-card">
+          
+          <div class="contact-header">
+            <span class="badge">تواصل معنا</span>
+            <h2>يسعدنا سماع رأيك واستفسارك</h2>
+            <p>تواصل مع Mahmoud Mostafa وفريق CybeNode وسنقوم بالرد عليك في أسرع وقت ممكن.</p>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">👤 الاسم الكامل:</label>
+              <input type="text" id="name" class="form-control" placeholder="أدخل اسمك هنا" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">✉️ البريد الإلكتروني:</label>
+              <input type="email" id="email" class="form-control" placeholder="example@domain.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">💬 الرسالة:</label>
+              <textarea id="message" class="form-control" rows="5" placeholder="اكتب استفسارك أو تفاصيل المشروع بالتفصيل..." required></textarea>
+            </div>
+
+            <div class="btn-container">
+              <button type="submit" id="animatedBtn" class="button">
+                <div class="state state--default">
+                  <div class="icon">✈️</div>
+                  <p>
+                    <span style="--i:0">S</span>
+                    <span style="--i:1">e</span>
+                    <span style="--i:2">n</span>
+                    <span style="--i:3">d</span>
+                    <span style="--i:4; margin-right: 5px;"></span>
+                    <span style="--i:5">M</span>
+                    <span style="--i:6">e</span>
+                    <span style="--i:7">s</span>
+                    <span style="--i:8">s</span>
+                    <span style="--i:9">a</span>
+                    <span style="--i:10">g</span>
+                    <span style="--i:11">e</span>
+                  </p>
+                </div>
+
+                <div class="state state--sent">
+                  <div class="icon">✓</div>
+                  <p>
+                    <span style="--i:0">S</span>
+                    <span style="--i:1">e</span>
+                    <span style="--i:2">n</span>
+                    <span style="--i:3">t</span>
+                  </p>
+                </div>
+              </button>
+            </div>
+          </form>
+
+          <div id="successCard" class="success-card">
+            <div class="success-icon-box">✓</div>
+            <h2 style="color: #2c3e50; font-size: 1.6rem; margin-bottom: 8px; font-weight: 800;">تم استلام رسالتك بنجاح!</h2>
+            <p style="color: #6c757d; font-size: 0.95rem;">شكراً لتواصلك معنا، وسيقوم Mahmoud Mostafa بالرد عليك قريباً.</p>
+            <button id="resetBtn" class="reset-btn">إرسال رسالة أخرى</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-about">
+          <div class="brand-logo">
+            <img src="logo.jpg" alt="CybeNode" class="brand-img" onerror="this.src='https://picsum.photos/seed/cybenode/100/100'" />
+            <div>
+              <span class="brand-name">Cybe<span>Node</span></span>
+              <span class="brand-badge">Mahmoud Mostafa</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            منصة تقنية متخصصة في تقديم أحدث أخبار التكنولوجيا، الذكاء الاصطناعي، الأمن السيبراني، إنشاء وتطوير المواقع، الربح من الإنترنت، وشروحات البرمجة والسيو.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">أقسام الموقع</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#vision">الرؤية والهدف</a></li>
+            <li><a href="#categories">المجالات والتخصصات</a></li>
+            <li><a href="#articles">أحدث المقالات</a></li>
+            <li><a href="#videos">أحدث الفيديوهات</a></li>
+            <li><a href="#features">المميزات</a></li>
+            <li><a href="#about">عن Mahmoud Mostafa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">التخصصات</h4>
+          <ul class="footer-links">
+            <li><a href="#categories">الذكاء الاصطناعي (AI)</a></li>
+            <li><a href="#categories">إنشاء وتطوير المواقع</a></li>
+            <li><a href="#categories">الأمن السيبراني</a></li>
+            <li><a href="#categories">شروحات البرمجة</a></li>
+            <li><a href="#categories">الربح من الإنترنت</a></li>
+            <li><a href="#categories">السيو وتصدر البحث</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">روابط مهمة</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.youtube.com/@CybeNod" target="_blank" rel="noopener noreferrer">قناة يوتيوب الرسمية</a></li>
+            <li><a href="https://www.cybenode.site/" target="_blank" rel="noopener noreferrer">الموقع والمدونة الرسمية</a></li>
+            <li><a href="https://cybe-node.blogspot.com/p/forum.html" target="_blank" rel="noopener noreferrer">منتدى CybeNode التقني</a></li>
+            <li><a href="#contact">نموذج الاتصال والدعم</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          جميع الحقوق محفوظة © <span id="currentYear"></span> <strong>CybeNode | Mahmoud Mostafa</strong>.
+        </div>
+        <div style="color: #777; font-size: 0.82rem;">
+          صُمم وطُوّر بكل شغف لخدمة المجتمع التقني العربي
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <div class="scroll-top-btn" id="scrollTopBtn" title="العودة للأعلى">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </div>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <div class="modal-content-box">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modalVideoTitle">مشاهدة الفيديو</h4>
+        <div class="modal-close-btn" id="modalCloseBtn">✕</div>
+      </div>
+      <div class="modal-iframe-wrap">
+        <iframe id="videoIframe" src="" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FIREBASE INTEGRATION MODULE SCRIPT
+       ============================================================ -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCbCb5aOCaswXNeVtvsTdjF8DwYQnup034",
+      authDomain: "studio-7759055776-def43.firebaseapp.com",
+      projectId: "studio-7759055776-def43",
+      storageBucket: "studio-7759055776-def43.firebasestorage.app",
+      messagingSenderId: "627519041285",
+      appId: "1:627519041285:web:42e6657f56ed42e4f2116c"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const contactForm = document.getElementById('contactForm');
+    const animatedBtn = document.getElementById('animatedBtn');
+    const successCard = document.getElementById('successCard');
+    const resetBtn = document.getElementById('resetBtn');
+
+    if (contactForm && animatedBtn && successCard && resetBtn) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        animatedBtn.classList.add('is-submitting');
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        try {
+          await addDoc(collection(db, "messages"), {
+            name: name,
+            email: email,
+            message: message,
+            createdAt: serverTimestamp()
+          });
+
+          setTimeout(() => {
+            contactForm.style.display = 'none';
+            successCard.style.display = 'block';
+            animatedBtn.classList.remove('is-submitting');
+            contactForm.reset();
+          }, 1400);
+
+        } catch (error) {
+          console.error("خطأ أثناء الإرسال: ", error);
+          alert('حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.');
+          animatedBtn.classList.remove('is-submitting');
+        }
+      });
+
+      resetBtn.addEventListener('click', () => {
+        successCard.style.display = 'none';
+        contactForm.style.display = 'flex';
+      });
+    }
+  </script>
+
+  <!-- ============================================================
+       VANILLA JAVASCRIPT: RSS FEEDS, ARTICLES, VIDEOS & INTERACTIVITY
+       ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Current Year
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      // 2. Navbar Scroll Effect & Active Section
+      const header = document.getElementById('mainHeader');
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section[id]');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+
+        if (window.scrollY > 400) {
+          scrollTopBtn.classList.add('visible');
+        } else {
+          scrollTopBtn.classList.remove('visible');
+        }
+
+        // Active link tracking
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 120;
+          if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 3. Mobile Navigation Drawer
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      const closeMobileBtn = document.getElementById('closeMobileBtn');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (mobileToggle) mobileToggle.addEventListener('click', openMenu);
+      if (closeMobileBtn) closeMobileBtn.addEventListener('click', closeMenu);
+      if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+      // 4. Intersection Observer for Fade-Up Animations
+      const fadeElements = document.querySelectorAll('.fade-up');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeElements.forEach(el => observer.observe(el));
+
+      // 5. Video Modal Handling
+      const videoModal = document.getElementById('videoModal');
+      const videoIframe = document.getElementById('videoIframe');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
+      const modalVideoTitle = document.getElementById('modalVideoTitle');
+
+      function openVideoModal(videoId, title) {
+        modalVideoTitle.textContent = title || 'مشاهدة الفيديو';
+        videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeVideoModal() {
+        videoModal.classList.remove('active');
+        videoIframe.src = '';
+        document.body.style.overflow = '';
+      }
+
+      if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeVideoModal);
+      if (videoModal) {
+        videoModal.addEventListener('click', (e) => {
+          if (e.target === videoModal) closeVideoModal();
+        });
+      }
+
+      // ============================================================
+      // 6. ARTICLES FETCHER (أحدث 3 مقالات من https://www.cybenode.site/rss.xml)
+      // ============================================================
+      const articlesGrid = document.getElementById('articlesGrid');
+      const blogRssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.cybenode.site/rss.xml')}`;
+
+      // Helper to strip HTML tags
+      function stripHtml(html) {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || '';
+      }
+
+      // Helper to extract image from item or content
+      function extractArticleImage(item) {
+        if (item.thumbnail && !item.thumbnail.includes('rss2json')) return item.thumbnail;
+        if (item.enclosure && item.enclosure.link) return item.enclosure.link;
+
+        // Try searching inside content or description for <img>
+        const fullContent = (item.content || '') + ' ' + (item.description || '');
+        const match = fullContent.match(/<img[^>]+src="([^">]+)"/i);
+        if (match && match[1]) return match[1];
+
+        // Modern fallback tech gradient images
+        const defaultImages = [
+          'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=700&auto=format&fit=crop&q=80'
+        ];
+        return defaultImages[Math.floor(Math.random() * defaultImages.length)];
+      }
+
+      function renderArticles(items) {
+        if (!articlesGrid) return;
+        articlesGrid.innerHTML = '';
+
+        if (!items || items.length === 0) {
+          articlesGrid.innerHTML = `
+            <div style="grid-column: 1 / -1;" class="empty-notice-box">
+              <div class="empty-notice-icon">📝</div>
+              <h3>لا توجد مقالات منشورة حالياً في الخلاصة</h3>
+              <p>تفضل بزيارة المدونة الرسمية لمتابعة أحدث التدوينات والشروحات التقنية.</p>
+              <a href="https://www.cybenode.site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                زيارة المدونة الرسمية
+              </a>
+            </div>
+          `;
+          return;
+        }
+
+        // Take the 3 latest articles
+        const latestArticles = items.slice(0, 3);
+
+        latestArticles.forEach((article, index) => {
+          const imgUrl = extractArticleImage(article);
+          const rawExcerpt = stripHtml(article.description || article.content || '');
+          const excerpt = rawExcerpt.length > 130 ? rawExcerpt.substring(0, 130) + '...' : rawExcerpt;
+          
+          let pubDateFormatted = 'حديثاً';
+          if (article.pubDate) {
+            try {
+              pubDateFormatted = new Date(article.pubDate).toLocaleDateString('ar-EG', {
+                year: 'numeric', month: 'short', day: 'numeric'
+              });
+            } catch (e) {}
+          }
+
+          const category = (article.categories && article.categories.length > 0) 
+            ? article.categories[0] 
+            : 'مقالات CybeNode';
+
+          const card = document.createElement('article');
+          card.className = `article-card fade-up visible delay-${(index % 3) + 1}`;
+
+          card.innerHTML = `
+            <div class="article-thumb-wrap">
+              <img src="${imgUrl}" alt="${article.title}" class="article-thumb" onerror="this.src='https://picsum.photos/seed/${encodeURIComponent(article.title.substring(0,10))}/600/340'" loading="lazy" />
+              <span class="article-badge-category">${category}</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <span>✍️ Mahmoud Mostafa</span>
+                <span>📅 ${pubDateFormatted}</span>
+              </div>
+              <h3 class="article-title" title="${article.title}">${article.title}</h3>
+              <p class="article-excerpt">${excerpt || 'اضغط على الرابط أدناه لقراءة المقال بالكامل مع كافة الشروحات والأمثلة العملية.'}</p>
+              <div class="article-footer">
+                <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="article-read-btn">
+                  <span>قراءة المقال كاملاً</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+          `;
+
+          articlesGrid.appendChild(card);
+        });
+      }
+
+      // Fetch Articles from RSS
+      fetch(blogRssUrl)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.status === 'ok' && data.items && data.items.length > 0) {
+            renderArticles(data.items);
+          } else {
+            // Fallback via Allorigins if rss2json had an issue with the feed
+            fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.cybenode.site/rss.xml')}`)
+              .then(res => res.json())
+              .then(raw => {
+                if (raw && raw.contents) {
+                  const parser = new DOMParser();
+                  const xmlDoc = parser.parseFromString(raw.contents, "text/xml");
+                  const itemNodes = xmlDoc.querySelectorAll("item");
+                  if (itemNodes && itemNodes.length > 0) {
+                    const parsed = Array.from(itemNodes).map(node => ({
+                      title: node.querySelector("title")?.textContent || "",
+                      link: node.querySelector("link")?.textContent || "https://www.cybenode.site/",
+                      description: node.querySelector("description")?.textContent || "",
+                      pubDate: node.querySelector("pubDate")?.textContent || "",
+                      categories: Array.from(node.querySelectorAll("category")).map(c => c.textContent)
+                    }));
+                    renderArticles(parsed);
+                    return;
+                  }
+                }
+                renderArticles([]);
+              })
+              .catch(() => renderArticles([]));
+          }
+        })
+        .catch(err => {
+          console.warn('تعذر جلب خلاصة المقالات:', err);
+          renderArticles([]);
+        });
+
+      // ============================================================
+      // 7. YOUTUBE RSS FEED FETCHER (عدم إظهار فيديوهات إذا كانت القناة فارغة)
+      // ============================================================
+      const channelId = "UCus3eKSf4UmzeIv1lvzcDfA";
+      const ytRssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`)}`;
+      const videosGrid = document.getElementById('videosGrid');
+      const noVideosNotice = document.getElementById('noVideosNotice');
+      const videoSectionFooterBtn = document.getElementById('videoSectionFooterBtn');
+
+      function renderVideos(items) {
+        if (!videosGrid) return;
+        videosGrid.innerHTML = '';
+
+        // If no real videos exist in the channel:
+        if (!items || items.length === 0) {
+          videosGrid.style.display = 'none';
+          if (noVideosNotice) noVideosNotice.style.display = 'block';
+          if (videoSectionFooterBtn) videoSectionFooterBtn.style.display = 'none';
+          return;
+        }
+
+        // Show videos grid
+        videosGrid.style.display = 'grid';
+        if (noVideosNotice) noVideosNotice.style.display = 'none';
+        if (videoSectionFooterBtn) videoSectionFooterBtn.style.display = 'block';
+
+        items.slice(0, 6).forEach((item, index) => {
+          let videoId = '';
+          if (item.guid && item.guid.includes('yt:video:')) {
+            videoId = item.guid.split('yt:video:')[1];
+          } else if (item.link && item.link.includes('v=')) {
+            videoId = item.link.split('v=')[1].split('&')[0];
+          }
+
+          let thumbUrl = item.thumbnail;
+          if (videoId && (!thumbUrl || thumbUrl.includes('rss2json'))) {
+            thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+          }
+
+          let pubDateFormatted = 'حديثاً';
+          if (item.pubDate) {
+            try {
+              pubDateFormatted = new Date(item.pubDate).toLocaleDateString('ar-EG', {
+                year: 'numeric', month: 'short', day: 'numeric'
+              });
+            } catch (e) {}
+          }
+
+          const card = document.createElement('div');
+          card.className = `video-card fade-up visible delay-${(index % 3) + 1}`;
+
+          card.innerHTML = `
+            <div class="video-thumbnail-wrap" data-videoid="${videoId}" data-title="${item.title}">
+              <img src="${thumbUrl}" alt="${item.title}" class="video-thumbnail" onerror="this.src='https://picsum.photos/seed/${videoId || 'cybenode'}/600/340'" loading="lazy" />
+              <div class="play-overlay">
+                <div class="play-btn-circle">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="video-body">
+              <div class="video-meta-top">
+                <span>CybeNode</span>
+                <span>📅 ${pubDateFormatted}</span>
+              </div>
+              <h3 class="video-title" title="${item.title}">${item.title}</h3>
+              <div class="video-footer">
+                <span style="font-size: 0.8rem; color: #888;">Mahmoud Mostafa</span>
+                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="video-watch-link">
+                  <span>مشاهدة على يوتيوب</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+          `;
+
+          const thumbWrap = card.querySelector('.video-thumbnail-wrap');
+          thumbWrap.addEventListener('click', () => {
+            if (videoId) {
+              openVideoModal(videoId, item.title);
+            } else {
+              window.open(item.link, '_blank');
+            }
+          });
+
+          videosGrid.appendChild(card);
+        });
+      }
+
+      // Fetch YouTube Videos (no fake fallback data if empty!)
+      fetch(ytRssUrl)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.status === 'ok' && data.items && data.items.length > 0) {
+            renderVideos(data.items);
+          } else {
+            // User requested: if no data in channel, don't show videos
+            renderVideos([]);
+          }
+        })
+        .catch(err => {
+          console.warn('خلاصة يوتيوب غير متاحة حالياً:', err);
+          renderVideos([]);
+        });
+    });
+  </script>
+</body>
+</html>
